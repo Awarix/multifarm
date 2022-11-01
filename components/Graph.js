@@ -3,7 +3,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 
 
-const Graph = () => {
+const Graph = (props) => {
     
     const data = [
     { date: '15.10', value: (122 + Math.random()*100).toFixed(0) },
@@ -13,12 +13,11 @@ const Graph = () => {
     { date: '19.10', value: (123 + Math.random()*100).toFixed(0) },
     { date: '20.10', value: (123 + Math.random()*100).toFixed(0) }
   ]
-
     return (
       <div style={{width:'100%', height:'300px'}}>
     <ResponsiveContainer >
     <AreaChart
-      data={data}
+      data={props.tvl}
       className='gradient-container'
       margin={{
         top: 10,
