@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Arr from '../components/Arr'
 import Graph from '../components/Graph'
 import styles from '../styles/Home.module.css'
 
@@ -40,6 +41,7 @@ export default function Home() {
       </div>
       <Graph tvl={tvl}/>
       </div>
+      <div><Arr /></div>
     </div>
   )
 }
