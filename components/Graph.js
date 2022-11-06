@@ -51,7 +51,7 @@ const Graph = (props) => {
       tickFormatter={(number) => `${number.toFixed(2)}B`}
       />
       <Tooltip content={<CustomTooltip />}/>
-      <Area type="monotone" dataKey="value" stroke="#b34adb" fill='url(#color)' />
+      <Area type="monotone" dataKey="value" stroke="#b34adb" strokeWidth={2} fill='url(#color)'  />
     </AreaChart>
     </ResponsiveContainer>
     </div>
