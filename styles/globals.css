@@ -28,7 +28,3 @@ a {
 :root {
   --gradient-background-graph-container: linear-gradient(90deg,#2f3457,#2a2f4f);
 }
-
-.gradient-container {
-  background-color: var(--gradient-background-graph-container);
-}

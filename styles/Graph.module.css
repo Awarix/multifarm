@@ -1,0 +1,5 @@
+.tooltip {
+    border: 1px solid #fff;
+    background-color: var(--gradient-background-graph-container);
+    padding: 0rem 0.5rem;
+}

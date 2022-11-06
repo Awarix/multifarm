@@ -1,24 +1,27 @@
 import React from "react"
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, CustomTooltip, ResponsiveContainer } from 'recharts'
+import styles from '../styles/Graph.module.css'
 
 
 
 const Graph = (props) => {
-    
-    const data = [
-    { date: '15.10', value: (122 + Math.random()*100).toFixed(0) },
-    { date: '16.10', value: (123 + Math.random()*100).toFixed(0) },
-    { date: '17.10', value: (123 + Math.random()*100).toFixed(0) },
-    { date: '18.10', value: (123 + Math.random()*100).toFixed(0) },
-    { date: '19.10', value: (123 + Math.random()*100).toFixed(0) },
-    { date: '20.10', value: (123 + Math.random()*100).toFixed(0) }
-  ]
+
+  function CustomTooltip ({active, payload, label}) {
+    if (active) {
+      return (
+        <div className={styles.tooltip}>
+          <h4>{label}</h4>
+          <h4> {payload[0].value.toFixed(2)} B</h4>
+        </div>
+      )
+    }
+  }
+
     return (
       <div style={{width:'100%', height:'300px'}}>
     <ResponsiveContainer >
     <AreaChart
       data={props.tvl}
-      className='gradient-container'
       margin={{
         top: 10,
         right: 30,
@@ -39,9 +42,15 @@ const Graph = (props) => {
             </linearGradient>
         </defs>
       <CartesianGrid stroke="#3b3f69" />
-      <XAxis dataKey="date" stroke="#9099d4"  />
-      <YAxis stroke="#9099d4"/>
-      <Tooltip />
+      <XAxis 
+      dataKey="date" 
+      stroke="#9099d4"  
+      />
+      <YAxis 
+      stroke="#9099d4"
+      tickFormatter={(number) => `${number.toFixed(2)}B`}
+      />
+      <Tooltip content={<CustomTooltip />}/>
       <Area type="monotone" dataKey="value" stroke="#b34adb" fill='url(#color)' />
     </AreaChart>
     </ResponsiveContainer>
